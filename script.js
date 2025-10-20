@@ -45,7 +45,7 @@ async function searchMeals() {
     if (data.meals === null) {
       resultHeading.textContent = ``;
       mealsContainer.innerHTML = "";
-      errorContainer.textContent = `No recipes found for "${searchTerm}". Try another search term!`;
+      errorContainer.textContent = `No recipes found for "${searchTerm}". Try Something else`;
       errorContainer.classList.remove("hidden");
     } else {
       resultHeading.textContent = `Search results for "${searchTerm}":`;
@@ -81,9 +81,9 @@ function displayMeals(meals) {
   });
 }
 
-//
+// SHOW RECIPE
 async function handleMealClick(e) {
-  const mealEl = e.target.closest(".meal");
+  const mealEl = e.target.closest(".meal"); //**
   if (!mealEl) return;
 
   const mealId = mealEl.getAttribute("data-meal-id");
@@ -109,7 +109,7 @@ async function handleMealClick(e) {
         }
       }
 
-      // display meal details
+      // DISPLAY MEAL DETAILS
       mealDetailsContent.innerHTML = `
            <img src="${meal.strMealThumb}" alt="${
         meal.strMeal
